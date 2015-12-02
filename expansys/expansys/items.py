@@ -9,6 +9,22 @@ import scrapy
 
 
 class ExpansysItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    urls = scrapy.Field()
+    title = scrapy.Field()
+    retailer_sku_code = scrapy.Field()
+    desc = scrapy.Field()
+    offer = scrapy.Field()
+    out_of_stock = scrapy.Field()
+    old_price = scrapy.Field()
+    #model = scrapy.Field()
+    #mpn = scrapy.Field()
+    sku = scrapy.Field()
+    #upc = scrapy.Field()
+    #ean = scrapy.Field()
+    #currency = scrapy.Field()
+    image = scrapy.Field()
+    price = scrapy.Field()
+    crawl_time = scrapy.Field()
+    #current_price = scrapy.Field()
+    #primary_image_url = scrapy.Field()
+    categories = scrapy.Field()
