@@ -10,8 +10,9 @@ class ExpansysSpider(CrawlSpider):
     name = 'expansys'
     allowed_domains = ['expansys.com.sg']
     start_urls = ['http://www.expansys.com.sg/']
-    rules = [Rule(LxmlLinkExtractor(allow=r'.+/\S+-\d+/'),callback='parse_items',follow=True)]    
-
+    rules = [Rule(LxmlLinkExtractor(allow=r'.+/\S+-\w+/?page=[0-9]+#\S+'),follow=True),
+             Rule(LxmlLinkExtractor(allow=r'.+/\S+-\d+/'),callback='parse_items',follow=True)]
+    #r'.+/\S+-\d+/'
     item = ExpansysItem()
     
     def parse_items(self, response):
