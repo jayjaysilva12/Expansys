@@ -29,7 +29,11 @@ class ExpansysSpider(CrawlSpider):
             for r in response.xpath('//div[@id="prod_core"]'):
                 item['title'] = r.xpath('//h1[@itemprop="name"]/text()').extract() or None
                 item['urls'] =  response.url or None
-                item['price'] = r.xpath('//p[@id="price"]/strong/span/text()').extract() or None
+                price = r.xpath('//p[@id="price"]/strong/span/text()').extract() or None
+                sup = r.xpath('//p[@id="price"]/strong/span/sup/text()').extract() or None
+                wholeprice = str(price)+'.'+str(sup)
+                item['price']=wholeprice
+                item['currency']= r.xpath('//p[@id="price"]/meta/@content').extract() or None
                 checkmate = r.xpath('//ul[@class="product-sku"]/li').extract() or None
                 for c in checkmate:
                   sku = re.search(r'sku:(\w+)',str(c))

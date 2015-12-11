@@ -22,7 +22,7 @@ class ExpansysItem(scrapy.Item):
     sku = scrapy.Field()
     upc = scrapy.Field()
     ean = scrapy.Field()
-    #currency = scrapy.Field()
+    currency = scrapy.Field()
     image = scrapy.Field()
     price = scrapy.Field()
     crawl_time = scrapy.Field()
